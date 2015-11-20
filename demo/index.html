@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="http://final-countdown.pragmaticmates.com/demo/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://final-countdown.pragmaticmates.com/demo/css/demo.css">
+</head>
+
+<body>
+
+<div class="countdown countdown-container container">
+    <div class="clock row">
+        <div class="clock-item clock-days countdown-time-value col-sm-6 col-md-3" id="days">
+            <div class="wrap">
+                <div class="inner">
+                    <div id="canvas-days" class="clock-canvas"></div>
+                    <div class="text">
+                        <p class="val">0</p>
+                        <p class="type-days type-time">DAYS</p>
+                    </div>
+                    <!-- /.text -->
+                </div>
+                <!-- /.inner -->
+            </div>
+            <!-- /.wrap -->
+        </div>
+        <!-- /.clock-item -->
+        <div class="clock-item clock-hours countdown-time-value col-sm-6 col-md-3">
+            <div class="wrap">
+                <div class="inner">
+                    <div id="canvas-hours" class="clock-canvas"></div>
+                    <div class="text">
+                        <p class="val">0</p>
+                        <p class="type-hours type-time">HOURS</p>
+                    </div>
+                    <!-- /.text -->
+                </div>
+                <!-- /.inner -->
+            </div>
+            <!-- /.wrap -->
+        </div>
+        <!-- /.clock-item -->
+        <div class="clock-item clock-minutes countdown-time-value col-sm-6 col-md-3">
+            <div class="wrap">
+                <div class="inner">
+                    <div id="canvas-minutes" class="clock-canvas"></div>
+                    <div class="text">
+                        <p class="val">0</p>
+                        <p class="type-minutes type-time">MINUTES</p>
+                    </div>
+                    <!-- /.text -->
+                </div>
+                <!-- /.inner -->
+            </div>
+            <!-- /.wrap -->
+        </div>
+        <!-- /.clock-item -->
+        <div class="clock-item clock-seconds countdown-time-value col-sm-6 col-md-3">
+            <div class="wrap">
+                <div class="inner">
+                    <div id="canvas-seconds" class="clock-canvas"></div>
+                    <div class="text">
+                        <p class="val">0</p>
+                        <p class="type-seconds type-time">SECONDS</p>
+                    </div>
+                    <!-- /.text -->
+                </div>
+                <!-- /.inner -->
+            </div>
+            <!-- /.wrap -->
+        </div>
+        <!-- /.clock-item -->
+    </div>
+    <!-- /.clock -->
+</div>
+<!-- /.countdown-wrapper -->
+
+
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://final-countdown.pragmaticmates.com/jquery.final-countdown.js"></script>
+<script type="text/javascript" src="http://final-countdown.pragmaticmates.com/demo/js/kinetic.js"></script>
+<script type="text/javascript">
+    var today = new Date();
+    // My target date is this month 30th 9.25pm
+    var target = new Date(today);
+    //target.setDate(2);
+    target.setHours(21,25,0,0);
+
+    // Countdown start from yesterday
+    var yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    yesterday.setHours(0,0,0,0);
+
+    $('.countdown').final_countdown({
+        'start': yesterday.getTime() / 1000,
+        'end': target.getTime() / 1000,
+        'now': today.getTime() / 1000,
+        seconds: {
+            borderColor: '#8ef58e',
+            borderWidth: '0.5'
+        },
+        minutes: {
+            borderColor: '#ff8d72',
+            borderWidth: '0.5'
+        },
+        hours: {
+            borderColor: '#69ccff',
+            borderWidth: '0.5'
+        },
+        days: {
+            borderColor: '#ffd35c',
+            borderWidth: '0.5'
+        }
+    });
+    $("#days").hide();
+    $('.countdown').css("text-align","center");
+</script>
+
+</html>
